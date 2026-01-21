@@ -9,6 +9,8 @@ cp riscv riscv_v01
 cd riscv_v01
 ```
 
+## Random instruction generator
+
 Create a file imem.sv:
 
 ```bash
@@ -194,3 +196,27 @@ Run the testbench of the imem block:
 ```bash
 make imem_tb
 ```
+
+## Testbench of the CPU with the random instruction generator
+
+Edit the cpu.sv file and comment the whole module declaration for the imem module.
+
+Then, edit the Makefile and add a new target with the following commands:
+
+```makefile
+cpu_tb_v01: clean
+	vlib work
+	vmap work work
+	vlog -sv ./riscv_v01/cpu_tb.sv ./riscv_v01/imem.sv ./riscv_v01/cpu.sv
+	vsim -c work.cpu_tb -do "run -all; quit -f;"
+```
+
+Run the testbench:
+
+```bash
+make cpu_tb_v01
+```
+
+If you want, you can give more time to the simulation by modifying the testbench too. Just add more time inside the `initial` block.
+
+This runs with the default seed, you can pick a specific seed by adding it to the vlog and vsim commands, for example with `-sv_seed 100`, or a random seed each time with `-sv_seed random`.
