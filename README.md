@@ -1,4 +1,4 @@
-# UVM Practices
+# Crash course on UVM
 
 This repository contains practice material for lectures on UVM.
 
