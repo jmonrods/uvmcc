@@ -1,4 +1,4 @@
-# 03: UVM
+# 03: UVM testbench
 
 Now let's use UVM. Why? Because in the previous practice, if we ever want to create a new test, we have to modify the tester.svh file and add more tests with tasks, which will become copies of the original tasks with some modifications. This requires a lot of replication, and we do not want to copy and paste everything. 
 
@@ -12,8 +12,8 @@ Let's start by creating a fresh copy of the original directed-test project:
 
 ```bash
 cd ~/Work/uvmcc
-cp riscv riscv_03
-cd riscv_03
+cp riscv riscv_v03
+cd riscv_v03
 ```
 
 Inside, create a folder for the cpu (DUT) and another for the UVM testbench (`uvm_tb`). Remember also to thrash the directed testbench.
@@ -21,7 +21,7 @@ Inside, create a folder for the cpu (DUT) and another for the UVM testbench (`uv
 ```bash
 mkdir cpu
 mv cpu.sv cpu/ 
-rm cpu.tb
+rm cpu_tb.sv
 
 mkdir uvm_tb
 ```
@@ -91,7 +91,7 @@ We need the PC out of the processor, because some instructions depend on the cur
 
 Navigate to the `uvm_tb` folder and start creating the following files:
 
-`cpu_pkg.sv`:
+`cpu_pkg.sv`
 
 ```systemverilog
 package cpu_pkg;
@@ -123,7 +123,7 @@ package cpu_pkg;
 endpackage
 ```
 
-`cpu_macros.svh`:
+`cpu_macros.svh`
 
 ```systemverilog
 // define macro for randomization check
@@ -227,7 +227,7 @@ endinterface
 
 Still inside the `uvm_tb` folder, create these files:
 
-` base_tester.svh`:
+` base_tester.svh`
 
 ```systemverilog
 virtual class base_tester extends uvm_component;
@@ -269,7 +269,7 @@ virtual class base_tester extends uvm_component;
 endclass
 ```
 
-`random_tester.svh`:
+`random_tester.svh`
 
 ```systemverilog
 class random_tester extends base_tester;
@@ -307,7 +307,7 @@ class random_tester extends base_tester;
 endclass
 ```
 
-`random_test.svh`:
+`random_test.svh`
 
 ```systemverilog
 class random_test extends uvm_test;
@@ -331,7 +331,7 @@ endclass
 
 Still inside the `uvm_tb` folder, create the following file:
 
-`env.svh`:
+`env.svh`
 
 ```systemverilog
 class env extends uvm_env;
@@ -358,7 +358,7 @@ endclass
 
 Still inside the `uvm_tb` folder, create the following file:
 
-`coverage.svh`:
+`coverage.svh`
 
 ```systemverilog
 // coverage: captures functional coverage information
@@ -400,7 +400,7 @@ endclass
 
 Still inside the `uvm_tb` folder, create the following file:
 
-`scoreboard.svh`:
+`scoreboard.svh`
 
 ```systemverilog
 // scoreboard: checks if the cpu is working
@@ -523,7 +523,7 @@ You should see the simulation output with random instructions, coverage, and the
 
 If we want to test ONLY the add instructions, we can make another tester. Navigate to the `uvm_tb` folder and create the following two files:
 
-`add_tester.svh`:
+`add_tester.svh`
 
 ```systemverilog
 class add_tester extends random_tester;
@@ -542,7 +542,7 @@ class add_tester extends random_tester;
 endclass
 ```
 
-`add_test.svh`:
+`add_test.svh`
 
 ```systemverilog
 class add_test extends uvm_test;

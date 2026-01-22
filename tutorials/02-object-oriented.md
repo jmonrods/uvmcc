@@ -1,4 +1,4 @@
-# 03: Object-oriented testbench
+# 02: Object-oriented testbench
 
 The randomized testbench works, but imagine you need to make a new instruction, and test only that instruction. You would have to copy the whole thing and modify the randomized instruction generator, which is the `imem.sv` block, every time you want a specific test in mind.
 
@@ -192,7 +192,7 @@ Then we need to remove the imem module completely, so make sure to eliminate bot
 
 With this done, create a `top.sv` file where you will connect the BFM to the CPU:
 
-```
+```systemverilog
 `timescale 1ns/1ps
 
 module top();
@@ -230,7 +230,7 @@ As you can see, here the testbench is an object of the testbench class, which wa
 
 Inside the `riscv_v02` folder, create a folder named `tb_classes`:
 
-```
+```bash
 cd ~/Work/uvmcc/riscv_v02
 mkdir tb_classes
 cd tb_classes
