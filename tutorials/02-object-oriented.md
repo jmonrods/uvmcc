@@ -351,8 +351,8 @@ class scoreboard;
                 SUB:  predicted_result = register_bank[bfm.in.rs1] - register_bank[bfm.in.rs2];
                 AND:  predicted_result = register_bank[bfm.in.rs1] & register_bank[bfm.in.rs2];
                 OR:   predicted_result = register_bank[bfm.in.rs1] | register_bank[bfm.in.rs2];
-                SLT:  predicted_result = (register_bank[bfm.in.rs1] < register_bank[bfm.in.rs2]) ? 32'hFFFFFFFF : 32'h00000000;
-                ADDI: predicted_result = register_bank[bfm.in.rs1] + bfm.in.imm;
+                SLT:  predicted_result = ($signed(register_bank[bfm.in.rs1]) < $signed(register_bank[bfm.in.rs2])) ? 32'hFFFFFFFF : 32'h00000000;
+                ADDI: predicted_result = register_bank[bfm.in.rs1] + {{20{bfm.in.imm[11]}},bfm.in.imm};
             endcase
 
             register_bank[bfm.in.rd] = (bfm.in.rd == 0) ? 32'h00000000 : predicted_result;
