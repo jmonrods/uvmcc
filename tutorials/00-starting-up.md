@@ -8,27 +8,33 @@ mkdir Work
 cd ~/Work
 ```
 
-Copy the following repository inside the Work folder:
+Clone this repository inside the Work folder:
 
 ```bash
-cp /mnt/vol_NFS_cadencedata/PROFESORES/JUAN_MONTERO/Work/intel ~/Work/
+git clone https://github.com/jmonrods/uvmcc
 ```
 
 Navigate to the repo:
 
-```
-cd intel
+```bash
+cd uvmcc
 ```
 
 Review what's in the Makefile:
 
-```
+```bash
 cat Makefile
+```
+
+Source the startup file for Siemens tools:
+
+```bash
+source ~/start_mentor.sh
 ```
 
 And run the directed testbench:
 
-```
+```bash
 make cpu_tb
 ```
 

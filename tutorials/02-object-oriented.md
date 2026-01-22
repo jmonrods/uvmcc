@@ -18,7 +18,7 @@ For our application, the `cat` and `dog` and `giraffe` will become tests, that e
 Copy the whole `riscv` original folder and label it as `riscv_v02`.
 
 ```bash
-cd ~/Work/intel
+cd ~/Work/uvmcc
 cp riscv riscv_v02
 cd riscv_02
 ```
@@ -231,7 +231,7 @@ As you can see, here the testbench is an object of the testbench class, which wa
 Inside the `riscv_v02` folder, create a folder named `tb_classes`:
 
 ```
-cd ~/Work/intel/riscv_v02
+cd ~/Work/uvmcc/riscv_v02
 mkdir tb_classes
 cd tb_classes
 ```

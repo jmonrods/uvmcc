@@ -11,12 +11,12 @@ The most efficient way to make more tests as you go, is to add them as extension
 Let's start by creating a fresh copy of the original directed-test project:
 
 ```bash
-cd ~/Work/intel
+cd ~/Work/uvmcc
 cp riscv riscv_03
 cd riscv_03
 ```
 
-Inside, create a folder for the cpu (DUT) and another for the UVM testbench (uvm_tb). Remember also to thrash the directed testbench.
+Inside, create a folder for the cpu (DUT) and another for the UVM testbench (`uvm_tb`). Remember also to thrash the directed testbench.
 
 ```bash
 mkdir cpu
@@ -513,7 +513,7 @@ riscv_v03: clean
 Just hit the make command!
 
 ```bash
-cd ~/Work/intel
+cd ~/Work/uvmcc
 make riscv_v03
 ```
 
