@@ -1,8 +1,7 @@
-// Instituto Tecnológico de Costa Rica
-// EL-3310 Diseño de sistemas digitales
-// Autor:       Juan José Montero Rodríguez
-// Fecha:       26.08.2024
-// Descripción: RISC-V CPU Testbench
+// UVM Crash Course
+// Author:       Juan José Montero Rodríguez
+// Date:         26.01.2026
+// Description:  RISC-V CPU Directed Testbench
 
 `timescale 1ns/1ps
 
