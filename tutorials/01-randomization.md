@@ -10,7 +10,7 @@ In this tutorial, we want to create an imem module that generates random instruc
 Create a copy of the riscv folder as follows:
 
 ```bash
-cp riscv riscv_v01
+cp riscv riscv_v01 -r
 cd riscv_v01
 ```
 

@@ -24,7 +24,7 @@ Copy the whole `riscv` original folder and label it as `riscv_v02`.
 
 ```bash
 cd ~/Work/uvmcc
-cp riscv riscv_v02
+cp riscv riscv_v02 -r
 cd riscv_v02
 ```
 
@@ -243,7 +243,7 @@ cd tb_classes
 
 Here, we need the following four files:
 
-`testbench.sv`:
+`testbench.svh`
 
 ```systemverilog
 //  testbench: the top-level class
@@ -276,7 +276,7 @@ class testbench;
 endclass : testbench
 ```
 
-`tester.sv`:
+`tester.svh`
 
 ```systemverilog
 // tester: drives stimulus
@@ -299,7 +299,7 @@ class tester;
 endclass
 ```
 
-`coverage.sv`
+`coverage.svh`
 
 ```systemverilog
 // coverage: captures functional coverage information
@@ -326,7 +326,7 @@ class coverage;
 endclass
 ```
 
-`scoreboard.svh`:
+`scoreboard.svh`
 
 ```systemverilog
 // scoreboard: checks if the cpu is working

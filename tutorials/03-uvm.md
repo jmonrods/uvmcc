@@ -17,7 +17,7 @@ Let's start by creating a fresh copy of the original directed-test project:
 
 ```bash
 cd ~/Work/uvmcc
-cp riscv riscv_v03
+cp riscv riscv_v03 -r
 cd riscv_v03
 ```
 
@@ -582,7 +582,7 @@ cpu_v03: clean
 	vopt top -o top_optimized +cover=sbfec+cpu
 	vsim -c +UVM_TESTNAME="random_test" top_optimized -coverage -do "set NoQuitOnFinish 1; onbreak {resume}; log /* -r; run -all; coverage save -onexit coverage.ucdb; quit;"
 	vcover report coverage.ucdb
-    vsim -c +UVM_TESTNAME="add_test" top_optimized -coverage -do "set NoQuitOnFinish 1; onbreak {resume}; log /* -r; run -all; coverage save -onexit coverage.ucdb; quit;"
+	vsim -c +UVM_TESTNAME="add_test" top_optimized -coverage -do "set NoQuitOnFinish 1; onbreak {resume}; log /* -r; run -all; coverage save -onexit coverage.ucdb; quit;"
 	vcover report coverage.ucdb
 ```
 
