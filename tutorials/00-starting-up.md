@@ -8,7 +8,7 @@
 Log-in to the RHEL server and source the startup file for Siemens tools:
 
 ```bash
-source ~/start_mentor.sh
+source /mnt/vol_NFS_mentorinstall/siemens/scripts/start_mentor.sh
 ```
 
 Make an empty folder in your home:
