@@ -224,7 +224,7 @@ make cpu_v01
 
 If you want, you can give more time to the simulation by modifying the testbench too. Just add more time inside the `initial` block.
 
-This runs with the default seed, you can pick a specific seed by adding it to the vlog and vsim commands, for example with `-sv_seed 100`, or a random seed each time with `-sv_seed random`.
+This runs with the default seed, you can pick a specific seed by adding it to the vsim command, for example with `-sv_seed 100`, or a random seed each time with `-sv_seed random`.
 
 
 ## Coverage collection
@@ -238,10 +238,10 @@ cpu_v01: clean
 	vlib work
 	vmap work work
 	vlog +cover -sv ./riscv_v01/cpu_tb.sv ./riscv_v01/cpu.sv ./riscv_v01/imem.sv
-	vsim -c -coverage work.cpu_tb -do "coverage save -onexit coverage.ucdb; run -all; quit -f;"
+	vsim -sv_seed 100 -c -coverage work.cpu_tb -do "coverage save -onexit coverage.ucdb; run -all; quit -f;"
 	vcover report coverage.ucdb
 ```
 
-Try with random seeds to see who of the class can get the most coverage. This is done by adding `-sv_seed random` to the `vlog` command.
+Try with random seeds to see who of the class can get the most coverage. This is done by adding `-sv_seed random` to the `vsim` command.
 
 Also, give it more time in the `cpu_tb.sv` until you reach 'enough' coverage. 

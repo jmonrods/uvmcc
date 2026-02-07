@@ -385,7 +385,7 @@ cpu_v02: clean
 	vlog -sv -f ./riscv_v02/dut.f
 	vlog -sv -f ./riscv_v02/tb.f
 	vopt top -o top_optimized +cover=sbfec
-	vsim -c top_optimized -coverage -do "set NoQuitOnFinish 1; onbreak {resume}; log /* -r; run -all; coverage save -onexit coverage.ucdb; quit;"
+	vsim -sv_seed random -c top_optimized -coverage -do "set NoQuitOnFinish 1; onbreak {resume}; log /* -r; run -all; coverage save -onexit coverage.ucdb; quit;"
 	#vcover report coverage.ucdb
 ```
 
